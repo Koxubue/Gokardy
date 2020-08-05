@@ -7,14 +7,14 @@ namespace Gokardy.Models
 {
     public partial class Przejazd
     {
-        public int IdPrzejazd { get; set; }
+        public int Id { get; set; }
         public DateTime Czas { get; set; }
-        public int IdGokard { get; set; }
-        public int IdTor { get; set; }
-        public int IdKierowca { get; set; }
+        public int GokardId { get; set; }
+        public int TorId { get; set; }
+        public int KierowcaId { get; set; }
 
-        public virtual Gokard IdGokardNavigation { get; set; }
-        public virtual Tor IdTorNavigation { get; set; }
-        public virtual Kierowca IdKierowcaNavigation { get; set; }
+        public virtual Gokard Gokard { get; set; }
+        public virtual Tor Tor { get; set; }
+        public virtual Kierowca Kierowca { get; set; }
     }
 }

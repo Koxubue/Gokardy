@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Gokardy.Models;
+using Gokardy.Services.Classes;
+using Gokardy.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,9 +29,10 @@ namespace Gokardy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IUzytkownikService, UzytkownikService>();
             services.AddDbContext<GokardyContext>(options =>
             {
-                options.UseSqlServer("Data Source=(Localdb)\\MSSQLLocalDB; Initial Catalog=Gokardy;Integrated Security=True");
+                options.UseSqlServer(@"Data Source=(Localdb)\MSSQLLocalDB; Initial Catalog=Gokardy;Integrated Security=True");
             });
         }
 

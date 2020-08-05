@@ -8,8 +8,6 @@
     <Folder Include="DTOs\Results\" />
     <Folder Include="DTOs\Responses\" />
     <Folder Include="DTOs\Requests\" />
-    <Folder Include="Services\Interfaces\" />
-    <Folder Include="Services\Classes\" />
   </ItemGroup>
 
   <ItemGroup>

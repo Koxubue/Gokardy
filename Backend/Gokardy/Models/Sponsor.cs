@@ -12,7 +12,7 @@ namespace Gokardy.Models
             KierowcaSponsor = new HashSet<KierowcaSponsor>();
         }   
 
-        public int IdSponsor { get; set; }
+        public int Id { get; set; }
         public string Nazwa { get; set; }
 
         public virtual ICollection<KierowcaSponsor> KierowcaSponsor { get; set; }

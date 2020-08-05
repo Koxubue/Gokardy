@@ -12,7 +12,7 @@ namespace Gokardy.Models
             Gokard = new HashSet<Gokard>();
         }
 
-        public int IdSilnik { get; set; }
+        public int Id { get; set; }
         public int Moc { get; set; }
         public int Pojemnosc { get; set; }
         public string Producent { get; set; }

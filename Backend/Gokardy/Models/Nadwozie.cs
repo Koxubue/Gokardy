@@ -12,7 +12,7 @@ namespace Gokardy.Models
             Gokard = new HashSet<Gokard>();
         }
 
-        public int IdNadwozie { get; set; }
+        public int Id { get; set; }
         public string Producent { get; set; }
 
         public virtual ICollection<Gokard> Gokard { get; set; }

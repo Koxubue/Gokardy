@@ -7,10 +7,11 @@ namespace Gokardy.Models
 {
     public partial class Uzytkownik
     {
-        public int IdUzytkownik { get; set; }
+        public int Id { get; set; }
         public string Login { get; set; }
         public string Haslo { get; set; }
 
         public virtual Pracownik Pracownik { get; set; }
+        public virtual Kierowca Kierowca { get; set; }
     }
 }

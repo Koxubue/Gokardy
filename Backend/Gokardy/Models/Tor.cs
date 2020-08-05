@@ -14,13 +14,13 @@ namespace Gokardy.Models
             Pracownik = new HashSet<Pracownik>();
         }
 
-        public int IdTor { get; set; }
+        public int Id { get; set; }
         public string Nazwa { get; set; }
         public double Długosc { get; set; }
         public double StawkaGodzinowa { get; set; }
-        public int IdAdres { get; set; }
+        public int AdresId { get; set; }
 
-        public virtual Adres IdAdresNavigation { get; set; }
+        public virtual Adres Adres { get; set; }
         public virtual ICollection<Przejazd> Przejazd { get; set; }
         public virtual ICollection<Gokard> Gokard { get; set; }
         public virtual ICollection<Pracownik> Pracownik { get; set; }

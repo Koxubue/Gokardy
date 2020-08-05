@@ -12,18 +12,18 @@ namespace Gokardy.Models
             Przejazd = new HashSet<Przejazd>();
         }
 
-        public int IdGokard { get; set; }
+        public int Id { get; set; }
         public string Nazwa { get; set; }
         public int Waga { get; set; }
-        public int IdSilnik { get; set; }
-        public int IdPodwozie { get; set; }
-        public int IdNadwozie { get; set; }
-        public int IdTor { get; set; }
+        public int SilnikId { get; set; }
+        public int PodwozieId { get; set; }
+        public int NadwozieId { get; set; }
+        public int TorId { get; set; }
 
-        public virtual Silnik IdSilnikNavigation { get; set; }
-        public virtual Nadwozie IdNadwozieNavigation { get; set; }
-        public virtual Podwozie IdPodwozieNavigation { get; set; }
-        public virtual Tor IdTorNavigation { get; set; }
+        public virtual Silnik Silnik { get; set; }
+        public virtual Nadwozie Nadwozie { get; set; }
+        public virtual Podwozie Podwozie { get; set; }
+        public virtual Tor Tor { get; set; }
         public virtual ICollection<Przejazd> Przejazd { get; set; }
     }
 }

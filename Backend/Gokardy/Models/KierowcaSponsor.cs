@@ -7,8 +7,8 @@ namespace Gokardy.Models
 {
     public partial class KierowcaSponsor
     {
-        public int IdKierowca { get; set; }
-        public int IdSponsor { get; set; }
+        public int KierowcaId { get; set; }
+        public int SponsorId { get; set; }
 
         public virtual Kierowca Kierowca { get; set; }
         public virtual Sponsor Sponsor { get; set; }
