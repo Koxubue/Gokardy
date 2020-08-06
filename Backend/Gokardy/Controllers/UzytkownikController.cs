@@ -9,12 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gokardy.Controllers
 {
-    [Route("api/gokardy")]
+    [Route("api/uzytkonik")]
     [ApiController]
-    public class GokardyController : ControllerBase
+    public class UzytkownikController : ControllerBase
     {
-        private IUzytkownikService service;
-        public GokardyController(IUzytkownikService service)
+        private IZarzadzajUzytkownikService service;
+        public UzytkownikController(IZarzadzajUzytkownikService service)
         {
             this.service = service;
         }

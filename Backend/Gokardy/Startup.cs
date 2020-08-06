@@ -29,7 +29,8 @@ namespace Gokardy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IUzytkownikService, UzytkownikService>();
+            services.AddTransient<IZarzadzajUzytkownikService, ZarzadzajUzytkownikService>();
+            services.AddTransient<IWyszukajTorService, WyszukajTorService>();
             services.AddDbContext<GokardyContext>(options =>
             {
                 options.UseSqlServer(@"Data Source=(Localdb)\MSSQLLocalDB; Initial Catalog=Gokardy;Integrated Security=True");

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gokardy.Services.Interfaces
 {
-    public interface IUzytkownikService
+    public interface IZarzadzajUzytkownikService
     {
         public void DodajUzytkownika(Uzytkownik uzytkownik);
         public void UsunUzytkownika(int Id);
