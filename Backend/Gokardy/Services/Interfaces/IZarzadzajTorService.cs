@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gokardy.Services.Interfaces
 {
-    public interface IWyszukajTorService
+    public interface IZarzadzajTorService
     {
         public List<Tor> WyszukajTorWDanymMiesice(string nazwaMiasta);
+
+        public List<Tor> WyszukajTorStawka();
     }
 }
