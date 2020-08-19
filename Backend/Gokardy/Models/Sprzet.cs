@@ -10,7 +10,7 @@ namespace Gokardy.Models
         public int Id { get; set; }
         public string Nazwa { get; set; }
         public double Koszt { get; set; }
-        public int KierowcaId { get; set; }  
+        public int? KierowcaId { get; set; }  
         
         public virtual Kierowca Kierowca { get; set; }
     }

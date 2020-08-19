@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gokardy.Controllers
 {
-    [Route("api/uzytkonik")]
+    [Route("api/uzytkownik")]
     [ApiController]
     public class UzytkownikController : ControllerBase
     {
@@ -20,9 +20,9 @@ namespace Gokardy.Controllers
         }
 
         [HttpGet]
-        public IActionResult WyswietlWszystkichUzytkownikow()
+        public IActionResult WyswietlWszystkichUzytkownikowSystemu()
         {
-            var result = service.WyswietlWszystkichUzytkownikow();
+            var result = service.WyswietlWszystkichUzytkownikowSystemu();
             return Ok(result);
         }
     }

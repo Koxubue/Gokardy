@@ -8,7 +8,8 @@ namespace Gokardy.Models
     public partial class Przejazd
     {
         public int Id { get; set; }
-        public DateTime Czas { get; set; }
+        public TimeSpan Czas { get; set; }
+        public DateTime DataPrzejazdu { get; set; }
         public int GokardId { get; set; }
         public int TorId { get; set; }
         public int KierowcaId { get; set; }

@@ -9,7 +9,6 @@ namespace Gokardy.Services.Interfaces
     public interface IZarzadzajTorService
     {
         public List<Tor> WyszukajTorWDanymMiesice(string nazwaMiasta);
-
         public List<Tor> WyszukajTorStawka();
     }
 }

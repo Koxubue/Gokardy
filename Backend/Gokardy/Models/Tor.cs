@@ -16,10 +16,12 @@ namespace Gokardy.Models
 
         public int Id { get; set; }
         public string Nazwa { get; set; }
-        public double Długosc { get; set; }
+        public double Dlugosc { get; set; }
         public double StawkaGodzinowa { get; set; }
         public int AdresId { get; set; }
+        public int WlascicielId { get; set; }
 
+        public virtual Wlasciciel Wlasciciel { get; set; }
         public virtual Adres Adres { get; set; }
         public virtual ICollection<Przejazd> Przejazd { get; set; }
         public virtual ICollection<Gokard> Gokard { get; set; }

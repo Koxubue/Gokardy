@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 
 namespace Gokardy.Models
 {
-    public partial class Pracownik
+    public partial class Wlasciciel
     {
+        public Wlasciciel()
+        {
+            Tor = new HashSet<Tor>();
+        }
         public int Id { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
-        public int Wiek { get; set; }
-        public string Stanowisko { get; set; }
-        public double Wynagrodzenie { get; set; }
-        public int TorId { get; set; }
-
-        public virtual Tor Tor { get; set; }
+        public virtual ICollection<Tor> Tor { get; set; }
     }
 }
