@@ -12,6 +12,7 @@ namespace Gokardy.Models
             Przejazd = new HashSet<Przejazd>();
             KierowcaSponsor = new HashSet<KierowcaSponsor>();
             Sprzet = new HashSet<Sprzet>();
+            PersonalizowanyGokard = new HashSet<PersonalizowanyGokard>();
         }
 
         public int Id { get; set; }
@@ -23,5 +24,6 @@ namespace Gokardy.Models
         public virtual ICollection<Przejazd> Przejazd { get; set; }
         public virtual ICollection<KierowcaSponsor> KierowcaSponsor { get; set; }
         public virtual ICollection<Sprzet> Sprzet { get; set; }
+        public virtual ICollection<PersonalizowanyGokard> PersonalizowanyGokard { get; set; }
     }
 }

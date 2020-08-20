@@ -59,6 +59,29 @@ namespace Gokardy.Services.Classes
             context.SaveChanges();
         }
 
+        public List<KierowcaResponse> WyswietlWszystkichKierowcowSystemu()
+        {
+            List<string> listaSponsorow = new List<string>();
+            List<KierowcaResponse> listaKierowcow = new List<KierowcaResponse>();
+
+            var result = context.Kierowca.ToList();
+            foreach (var item in result)
+            {
+                var sponsorzy = context.KierowcaSponsor.Where(e => e.KierowcaId == item.Id).Select(e => e.Sponsor.Nazwa).ToList();
+                var kierowca = new KierowcaResponse()
+                {
+                    Id = item.Id,
+                    Imie = item.Imie,
+                    Nazwisko = item.Nazwisko,
+                    Wiek = item.Wiek,
+                    NumerKarty = item.NumerKarty,
+                    Sponsorzy = sponsorzy
+                };
+                listaKierowcow.Add(kierowca);
+            }
+            return listaKierowcow;
+        }
+
         public List<UzytkownikResponse> WyswietlWszystkichUzytkownikowSystemu()
         {
             List<UzytkownikResponse> listaUzytkownikow = new List<UzytkownikResponse>();

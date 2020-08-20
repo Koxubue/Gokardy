@@ -4,14 +4,16 @@ using Gokardy.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gokardy.Migrations
 {
     [DbContext(typeof(GokardyContext))]
-    partial class GokardyContextModelSnapshot : ModelSnapshot
+    [Migration("20200820182442_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,9 +78,6 @@ namespace Gokardy.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cena")
-                        .HasColumnType("float");
-
                     b.Property<int>("NadwozieId")
                         .HasColumnType("int");
 
@@ -115,7 +114,6 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 1,
-                            Cena = 2000.0,
                             NadwozieId = 2,
                             Nazwa = "Junior",
                             PodwozieId = 2,
@@ -126,7 +124,6 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 2,
-                            Cena = 3000.0,
                             NadwozieId = 1,
                             Nazwa = "Standard",
                             PodwozieId = 1,
@@ -137,7 +134,6 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 3,
-                            Cena = 4000.0,
                             NadwozieId = 3,
                             Nazwa = "Standard+",
                             PodwozieId = 3,
@@ -239,15 +235,9 @@ namespace Gokardy.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cena")
-                        .HasColumnType("float");
-
                     b.Property<string>("Producent")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
-
-                    b.Property<int>("Waga")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -257,23 +247,17 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 1,
-                            Cena = 300.0,
-                            Producent = "Alfa Romeo",
-                            Waga = 100
+                            Producent = "Alfa Romeo"
                         },
                         new
                         {
                             Id = 2,
-                            Cena = 400.0,
-                            Producent = "Honda",
-                            Waga = 200
+                            Producent = "Honda"
                         },
                         new
                         {
                             Id = 3,
-                            Cena = 400.0,
-                            Producent = "Chevrolet",
-                            Waga = 300
+                            Producent = "Chevrolet"
                         });
                 });
 
@@ -283,6 +267,9 @@ namespace Gokardy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Cena")
+                        .HasColumnType("float");
 
                     b.Property<int>("GokardId")
                         .HasColumnType("int");
@@ -307,15 +294,9 @@ namespace Gokardy.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cena")
-                        .HasColumnType("float");
-
                     b.Property<string>("Producent")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
-
-                    b.Property<int>("Waga")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -325,23 +306,17 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 1,
-                            Cena = 300.0,
-                            Producent = "Alfa Romeo",
-                            Waga = 100
+                            Producent = "Alfa Romeo"
                         },
                         new
                         {
                             Id = 2,
-                            Cena = 700.0,
-                            Producent = "Honda",
-                            Waga = 400
+                            Producent = "Honda"
                         },
                         new
                         {
                             Id = 3,
-                            Cena = 100.0,
-                            Producent = "Chevrolet",
-                            Waga = 300
+                            Producent = "Chevrolet"
                         });
                 });
 
@@ -535,9 +510,6 @@ namespace Gokardy.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cena")
-                        .HasColumnType("float");
-
                     b.Property<int>("Moc")
                         .HasColumnType("int");
 
@@ -548,9 +520,6 @@ namespace Gokardy.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("Waga")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Silnik");
@@ -559,29 +528,23 @@ namespace Gokardy.Migrations
                         new
                         {
                             Id = 1,
-                            Cena = 300.0,
                             Moc = 20,
                             Pojemnosc = 600,
-                            Producent = "Mercedes",
-                            Waga = 700
+                            Producent = "Mercedes"
                         },
                         new
                         {
                             Id = 2,
-                            Cena = 800.0,
                             Moc = 15,
                             Pojemnosc = 350,
-                            Producent = "Audi",
-                            Waga = 600
+                            Producent = "Audi"
                         },
                         new
                         {
                             Id = 3,
-                            Cena = 900.0,
                             Moc = 25,
                             Pojemnosc = 800,
-                            Producent = "Ferrari",
-                            Waga = 500
+                            Producent = "Ferrari"
                         });
                 });
 

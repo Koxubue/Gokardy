@@ -20,5 +20,8 @@ namespace Gokardy.Services.Interfaces
 
         // tylko wlasciciel moze wyswietlac wszystkich uzytkownikow
         public List<UzytkownikResponse> WyswietlWszystkichUzytkownikowSystemu();
+
+        // kierowcow wyswietla tylko pracownik
+        public List<KierowcaResponse> WyswietlWszystkichKierowcowSystemu();
     }
 }

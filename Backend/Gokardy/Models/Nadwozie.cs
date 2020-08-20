@@ -14,6 +14,8 @@ namespace Gokardy.Models
 
         public int Id { get; set; }
         public string Producent { get; set; }
+        public int Waga { get; set; }
+        public double Cena { get; set; }
 
         public virtual ICollection<Gokard> Gokard { get; set; }
     }

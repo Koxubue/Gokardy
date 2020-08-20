@@ -21,6 +21,7 @@ namespace Gokardy.Models
         public DbSet<Sprzet> Sprzet { get; set; }
         public DbSet<Tor> Tor { get; set; }
         public DbSet<Wlasciciel> Wlasciciel { get; set; }
+        public DbSet<PersonalizowanyGokard> PersonalizowanyGokard { get; set; }
 
 
         public GokardyContext(DbContextOptions options) : base(options)
@@ -50,6 +51,7 @@ namespace Gokardy.Models
                 entity.HasOne(e => e.Nadwozie).WithMany(d => d.Gokard).HasForeignKey(e => e.NadwozieId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(e => e.Silnik).WithMany(d => d.Gokard).HasForeignKey(e => e.SilnikId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(e => e.Tor).WithMany(d => d.Gokard).HasForeignKey(e => e.TorId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(e => e.PersonalizowanyGokard).WithOne(d => d.Gokard).HasForeignKey<PersonalizowanyGokard>(e => e.GokardId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(e => e.Przejazd).WithOne(d => d.Gokard).HasForeignKey(e => e.GokardId).OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -119,6 +121,7 @@ namespace Gokardy.Models
                 entity.Property(e => e.Nazwisko).IsRequired();
                 entity.HasMany(e => e.Przejazd).WithOne(d => d.Kierowca).HasForeignKey(e => e.KierowcaId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(e => e.Sprzet).WithOne(d => d.Kierowca).HasForeignKey(e => e.KierowcaId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasMany(e => e.PersonalizowanyGokard).WithOne(d => d.Kierowca).HasForeignKey(e => e.KierowcaId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(e => e.KierowcaSponsor).WithOne(d => d.Kierowca).HasForeignKey(e => e.KierowcaId).HasConstraintName("Kierowca_KierowcaSponsor");
             });
 
@@ -144,6 +147,13 @@ namespace Gokardy.Models
                 entity.Property(e => e.Imie).IsRequired();
                 entity.Property(e => e.Nazwisko).IsRequired();
                 entity.HasMany(e => e.Tor).WithOne(d => d.Wlasciciel).HasForeignKey(e => e.WlascicielId).OnDelete(DeleteBehavior.NoAction);
+            });
+
+            modelBuilder.Entity<PersonalizowanyGokard>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+                entity.HasOne(e => e.Kierowca).WithMany(d => d.PersonalizowanyGokard).HasForeignKey(e => e.KierowcaId).OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<KierowcaSponsor>(entity => entity.HasKey(e => new { e.KierowcaId, e.SponsorId}));
@@ -188,6 +198,7 @@ namespace Gokardy.Models
                     Id = 1,
                     Nazwa = "Junior",
                     Waga = 150,
+                    Cena = 2000,
                     SilnikId = 2,
                     NadwozieId = 2,
                     PodwozieId = 2,
@@ -199,6 +210,7 @@ namespace Gokardy.Models
                     Id = 2,
                     Nazwa = "Standard",
                     Waga = 160,
+                    Cena = 3000,
                     SilnikId = 1,
                     NadwozieId = 1,
                     PodwozieId = 1,
@@ -210,6 +222,7 @@ namespace Gokardy.Models
                     Id = 3,
                     Nazwa = "Standard+",
                     Waga = 180,
+                    Cena = 4000,
                     SilnikId = 3,
                     NadwozieId = 3,
                     PodwozieId = 3,
@@ -270,19 +283,25 @@ namespace Gokardy.Models
                 Nadwozia.Add(new Nadwozie
                 {
                     Id = 1,
-                    Producent = "Alfa Romeo"
+                    Producent = "Alfa Romeo",
+                    Waga = 100,
+                    Cena = 300
                 }); 
 
                 Nadwozia.Add(new Nadwozie
                 {
                     Id = 2,
-                    Producent = "Honda"
+                    Producent = "Honda",
+                    Waga = 200,
+                    Cena = 400
                 }); 
 
                 Nadwozia.Add(new Nadwozie
                 {
                     Id = 3,
-                    Producent = "Chevrolet"
+                    Producent = "Chevrolet",
+                    Waga = 300,
+                    Cena = 400
                 }); 
 
                 //Podwozia
@@ -290,19 +309,25 @@ namespace Gokardy.Models
                 Podwozia.Add(new Podwozie
                 {
                     Id = 1,
-                    Producent = "Alfa Romeo"
+                    Producent = "Alfa Romeo",
+                    Waga = 100,
+                    Cena = 300
                 }); 
 
                 Podwozia.Add(new Podwozie
                 {
                     Id = 2,
-                    Producent = "Honda"
+                    Producent = "Honda",
+                    Waga = 400,
+                    Cena = 700
                 }); 
 
                 Podwozia.Add(new Podwozie
                 {
                     Id = 3,
-                    Producent = "Chevrolet"
+                    Producent = "Chevrolet",
+                    Waga = 300,
+                    Cena = 100
                 }); 
 
                 //Pracownicy
@@ -440,7 +465,9 @@ namespace Gokardy.Models
                     Id = 1,
                     Moc = 20,
                     Pojemnosc = 600,
-                    Producent = "Mercedes"
+                    Producent = "Mercedes",
+                    Waga = 700,
+                    Cena = 300
                 }); 
 
                 Silniki.Add(new Silnik
@@ -448,7 +475,9 @@ namespace Gokardy.Models
                     Id = 2,
                     Moc = 15,
                     Pojemnosc = 350,
-                    Producent = "Audi"
+                    Producent = "Audi",
+                    Waga = 600,
+                    Cena = 800
                 }); 
 
                 Silniki.Add(new Silnik
@@ -456,7 +485,9 @@ namespace Gokardy.Models
                     Id = 3,
                     Moc = 25,
                     Pojemnosc = 800,
-                    Producent = "Ferrari"
+                    Producent = "Ferrari",
+                    Waga = 500,
+                    Cena = 900
                 }); 
 
                 //Sponsorzy

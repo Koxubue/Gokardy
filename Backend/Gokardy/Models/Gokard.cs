@@ -15,6 +15,7 @@ namespace Gokardy.Models
         public int Id { get; set; }
         public string Nazwa { get; set; }
         public int Waga { get; set; }
+        public double Cena { get; set; }
         public int SilnikId { get; set; }
         public int PodwozieId { get; set; }
         public int NadwozieId { get; set; }
@@ -24,6 +25,7 @@ namespace Gokardy.Models
         public virtual Nadwozie Nadwozie { get; set; }
         public virtual Podwozie Podwozie { get; set; }
         public virtual Tor Tor { get; set; }
+        public virtual PersonalizowanyGokard PersonalizowanyGokard { get; set; }
         public virtual ICollection<Przejazd> Przejazd { get; set; }
     }
 }

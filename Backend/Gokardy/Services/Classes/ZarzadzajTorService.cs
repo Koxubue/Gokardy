@@ -24,7 +24,9 @@ namespace Gokardy.Services.Classes
             {
                 sumaCen += item;
             }
-            return context.Tor.Where(e => e.StawkaGodzinowa <= sumaCen).ToList();
+
+            double sredniaCena = sumaCen / ceny.Count();
+            return context.Tor.Where(e => e.StawkaGodzinowa <= sredniaCena).ToList();
         }
 
         public List<Tor> WyszukajTorWDanymMiesice(string nazwaMiasta)
