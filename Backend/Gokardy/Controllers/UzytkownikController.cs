@@ -13,8 +13,8 @@ namespace Gokardy.Controllers
     [ApiController]
     public class UzytkownikController : ControllerBase
     {
-        private IZarzadzajUzytkownikService service;
-        public UzytkownikController(IZarzadzajUzytkownikService service)
+        private IUzytkownikService service;
+        public UzytkownikController(IUzytkownikService service)
         {
             this.service = service;
         }

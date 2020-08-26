@@ -237,7 +237,7 @@ namespace Gokardy.Models
                     Imie = "Tomasz",
                     Nazwisko = "Kowalski",
                     Wiek = 21,
-                    NumerKarty = "k1704"                    
+                    NumerKarty = "k1704"
                 }); 
 
                 Kierowcy.Add(new Kierowca

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gokardy.Encryptions;
 using Gokardy.Models;
 using Gokardy.Services.Classes;
 using Gokardy.Services.Interfaces;
@@ -29,9 +30,13 @@ namespace Gokardy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IZarzadzajUzytkownikService, ZarzadzajUzytkownikService>();
+            services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IEncryption, Encryption>();
+            services.AddTransient<IUzytkownikService, UzytkownikService>();
             services.AddTransient<IZarzadzajTorService, ZarzadzajTorService>();
             services.AddTransient<IZarzadajKierowcaService, ZarzadzajKierowcaService>();
+            services.AddTransient<IZarzadzajGokardService, ZarzadzajGokardService>();
+            services.AddTransient<IZarzadzajPracownikService, ZarzadzajPracownikService>();
             services.AddDbContext<GokardyContext>(options =>
             {
                 options.UseSqlServer(@"Data Source=(Localdb)\MSSQLLocalDB; Initial Catalog=Gokardy;Integrated Security=True");

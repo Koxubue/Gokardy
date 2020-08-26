@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gokardy.DTOs.Requests;
 using Gokardy.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,17 +13,27 @@ namespace Gokardy.Controllers
     [ApiController]
     public class KierowcaController : ControllerBase
     {
-        private IZarzadajKierowcaService service;
-        public KierowcaController(IZarzadajKierowcaService service)
+        private IZarzadajKierowcaService serviceKierowca;
+        private IZarzadzajGokardService serviceGokard;
+        public KierowcaController(IZarzadajKierowcaService serviceKierowca, IZarzadzajGokardService serviceGokard)
         {
-            this.service = service;
+            this.serviceKierowca = serviceKierowca;
+            this.serviceGokard = serviceGokard;
         }
 
         [HttpGet]
         [Route("/bezSponsora")]
         public IActionResult KierowcaBezSponsora()
         {
-            service.KierowcaBezSponsora();
+            serviceKierowca.KierowcaBezSponsora();
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("/personalizuj")]
+        public IActionResult PersonalizacjaGokarda(PersonalizujGokardaRequest request, int Id)
+        {
+            serviceGokard.PersonalizujGokard(request, Id);
             return Ok();
         }
     }

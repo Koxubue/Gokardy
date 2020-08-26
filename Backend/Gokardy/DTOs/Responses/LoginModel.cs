@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gokardy.DTOs.Requests
+namespace Gokardy.DTOs.Responses
 {
-    public class DodajKierowceDoBazdyRequest
+    public class LoginModel
     {
-        public string Imie { get; set; }
-        public string Nazwisko { get; set; }
-        public int Wiek { get; set; }
         public string Login { get; set; }
         public string Haslo { get; set; }
     }
