@@ -21,20 +21,25 @@ namespace Gokardy.Controllers
             this.serviceGokard = serviceGokard;
         }
 
-        [HttpGet]
-        [Route("/bezSponsora")]
+        [HttpGet("bezsponsora")]
         public IActionResult KierowcaBezSponsora()
         {
             serviceKierowca.KierowcaBezSponsora();
             return Ok();
         }
 
-        [HttpPost]
-        [Route("/personalizuj")]
+        [HttpPost("personalizuj")]
         public IActionResult PersonalizacjaGokarda(PersonalizujGokardaRequest request, int Id)
         {
             serviceGokard.PersonalizujGokard(request, Id);
             return Ok();
+        }
+
+        [HttpPost("utworz")]
+        public IActionResult StworzKierowce(DodajKierowceDoBazdyRequest request)
+        {
+            serviceKierowca.DodajKierowceDoBazy(request);
+            return Ok("Konto zostało utworzone!");
         }
     }
 }

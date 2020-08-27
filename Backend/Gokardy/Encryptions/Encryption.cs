@@ -14,13 +14,10 @@ namespace Gokardy.Encryptions
     public class Encryption : IEncryption
     {
         public string SzyfrujHaslo(string haslo)
-        {
-            // Create a SHA256   
-            using SHA256 sha256Hash = SHA256.Create();
-            // ComputeHash - returns byte array  
+        {   
+            using SHA256 sha256Hash = SHA256.Create();  
             byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(haslo));
-
-            // Convert byte array to a string   
+   
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < bytes.Length; i++)
             {

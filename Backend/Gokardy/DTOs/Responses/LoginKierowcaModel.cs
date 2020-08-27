@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Gokardy.DTOs.Responses
 {
-    public class LoginModel
+    public class LoginKierowcaModel
     {
         public string Login { get; set; }
         public string Haslo { get; set; }

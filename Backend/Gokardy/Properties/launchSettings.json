@@ -12,16 +12,16 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/gokardy",
+      "launchUrl": "api/kierowca",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "Gokardy": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/gokardy",
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "http://localhost:52797",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
